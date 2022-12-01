@@ -15,7 +15,8 @@ defmodule AocHelpers do
   @doc """
   Returns the input HTTPoison request given the year and day
   """
-  @spec get_input_request(year :: number(), day :: number, cookie :: String.t()) :: HTTPoison.Response.t()
+  @spec get_input_request(year :: number(), day :: number, cookie :: String.t()) ::
+          HTTPoison.Response.t()
   def get_input_request(year, day, cookie \\ nil) do
     url(year, day)
     |> HTTPoison.get!(%{}, hackney: build_cookie(cookie))
