@@ -7,7 +7,13 @@ defmodule AocHelpers.MixProject do
       version: "0.1.0",
       elixir: "~> 1.14",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      package: [
+        maintainers: ["Sergio Arbeo"],
+        licenses: ["MIT"],
+        links: %{"GitHub" => "https://github.com/Serabe/aoc_helpers"},
+        description: "Helpers for solving AoC in a LiveBook"
+      ]
     ]
   end
 
