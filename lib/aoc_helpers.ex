@@ -32,6 +32,39 @@ defmodule AocHelpers do
     }
   end
 
+  @doc """
+  Streams the input as a series of lines.
+
+  Options:
+
+  - trim, optional, defaults to true.
+  """
+  def stream_lines(input, opts \\ [trim: true]) do
+    String.splitter(input, "\n", opts)
+  end
+
+  @doc """
+  Streams the input as a series of integers.
+
+  Options:
+
+  - base, optional, defaults to 10. Base for parsing the digits.
+  - trim, optional, defaults to true. For the splitting process.
+  - whiteline, optional, defaults to "". Value for empty lines.
+  """
+  def stream_integers(input, opts \\ []) do
+    base = Keyword.get(opts, :base, 10)
+    trim = Keyword.get(opts, :trim, true)
+    whiteline = Keyword.get(opts, :whiteline, "")
+
+    input
+    |> stream_lines(trim: trim)
+    |> Stream.map(fn
+      "" -> whiteline
+      n -> String.to_integer(n, base)
+    end)
+  end
+
   defp parse_headers(headers, parsed \\ %{})
   defp parse_headers([], parsed), do: parsed
   defp parse_headers([{key, value} | rest], parsed) do
