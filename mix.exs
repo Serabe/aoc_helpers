@@ -4,7 +4,7 @@ defmodule AocHelpers.MixProject do
   def project do
     [
       app: :aoc_helpers,
-      version: "0.2.0",
+      version: "0.3.0",
       elixir: "~> 1.14",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -20,7 +20,7 @@ defmodule AocHelpers.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger]
+      extra_applications: [:inets, :logger, :ssl]
     ]
   end
 
