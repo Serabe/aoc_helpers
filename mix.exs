@@ -4,7 +4,7 @@ defmodule AocHelpers.MixProject do
   def project do
     [
       app: :aoc_helpers,
-      version: "0.4.0",
+      version: "0.5.0",
       elixir: "~> 1.14",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -26,7 +26,6 @@ defmodule AocHelpers.MixProject do
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
-    [
-    ]
+    []
   end
 end
